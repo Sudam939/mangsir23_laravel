@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::all();
+        $categories = Category::orderBy('position','asc')->get();
         return view('admin.category.index', compact('categories'));
     }
 
@@ -103,7 +103,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         $tCategories = Category::where('position', '>', $category->position)->get();
-        
+
         foreach ($tCategories as $tcat) {
             $tcat->position = $tcat->position - 1;
             $tcat->update();
