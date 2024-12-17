@@ -18,7 +18,7 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="index.html" class="nav-link"><i data-feather="paperclip"></i><span>Post</span></a>
+            <a href="{{route('post.index')}}" class="nav-link"><i data-feather="paperclip"></i><span>Post</span></a>
         </li>
         <li class="dropdown">
             <a href="index.html" class="nav-link"><i data-feather="image"></i><span>Advertise</span></a>
