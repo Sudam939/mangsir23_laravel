@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdvertiseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\PostController;
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin/company', CompanyController::class)->names('company');
     Route::resource('/admin/category', CategoryController::class)->names('category');
     Route::resource('/admin/post', PostController::class)->names('post');
+    Route::resource('/admin/advertise', AdvertiseController::class)->names('advertise');
 
 });
 
