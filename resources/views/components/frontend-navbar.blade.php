@@ -1,4 +1,4 @@
-<nav class="py-4 bg-[#642571] text-white my-4">
+<nav class="py-4 bg_primary text-white my-4">
     <div class="container">
         <div class="md:hidden">
             <button type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example"
@@ -19,7 +19,7 @@
 
             @foreach ($f_categories as $category)
                 <li>
-                    <a href="" class="hover:text-pink-600 hover:no-underline">{{ $category->nep_title }}</a>
+                    <a href="{{route('cat', $category->slug)}}" class="hover:text-pink-600 hover:no-underline">{{ $category->nep_title }}</a>
                 </li>
             @endforeach
 
@@ -35,7 +35,7 @@
 
                 <!-- Dropdown menu -->
                 <div id="dropdown"
-                    class="z-10 hidden bg-[#642571] text-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                    class="z-10 hidden bg_primary text-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
                     <ul class="py-2 mx-4 text-sm" aria-labelledby="dropdownDefaultButton">
                         @foreach ($l_categories as $category)
                             <li>
@@ -55,7 +55,7 @@
 
 <!-- drawer component -->
 <div id="drawer-example"
-    class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-[#642571] w-80 text-white"
+    class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg_primary w-80 text-white"
     tabindex="-1" aria-labelledby="drawer-label">
     <h5 class="text-2xl mb-4">Menu</h5>
     <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example"

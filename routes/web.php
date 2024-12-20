@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class, 'home'])->name('home');
+Route::get('/category/{slug}',[PageController::class, 'category'])->name('cat');
 
 
 Route::get('/dashboard', function () {

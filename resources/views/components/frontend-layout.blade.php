@@ -10,18 +10,8 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&display=swap');
+    <link rel="stylesheet" href="/frontend/style.css">
 
-        .container {
-            width: 86%;
-            margin: auto;
-        }
-
-        body {
-            font-family: "Noto Sans Devanagari", serif;
-        }
-    </style>
 </head>
 
 <body>

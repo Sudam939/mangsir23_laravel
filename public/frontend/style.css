@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&display=swap');
+
+:root{
+    --primary:#642571;
+    --light_primary:#6425711a;
+}
+
+
+.bg_primary{
+    background-color: var(--primary);
+}
+
+.text_primary{
+    color: var(--primary);
+}
+
+.bg-light_primary{
+    background-color: var(--light_primary);
+}
+
+.container {
+    width: 86%;
+    margin: auto;
+}
+
+body {
+    font-family: "Noto Sans Devanagari", serif;
+}
