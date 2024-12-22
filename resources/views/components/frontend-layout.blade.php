@@ -12,11 +12,27 @@
 
     <link rel="stylesheet" href="/frontend/style.css">
 
+    <style>
+        .descritpion figure,
+        .descritpion img {
+            width: 100% !important;
+            display: none !important;
+        }
+
+        @media (min-width: 768px) {
+
+            .descritpion figure,
+            .descritpion img {
+                width: 100% !important;
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
+    <header class="sticky top-0 z-10 bg-white">
         <div class="container flex items-center justify-between">
             <div>
                 <img class="h-[50px] md:h-[70px] lg:h-[90px]" src="{{ asset($company->logo) }}" alt="Company Logo">

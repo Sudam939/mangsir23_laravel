@@ -1,4 +1,4 @@
-<nav class="py-4 bg_primary text-white my-4">
+<nav class="py-4 bg_primary text-white my-4 ">
     <div class="container">
         <div class="md:hidden">
             <button type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example"
@@ -42,6 +42,7 @@
                                 <a href=""
                                     class="hover:text-pink-600 hover:no-underline">{{ $category->nep_title }}</a>
                             </li>
+
                         @endforeach
                     </ul>
                 </div>
