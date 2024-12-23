@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="{{asset('frontend/style.css')}}">
@@ -31,31 +29,25 @@
 </head>
 
 <body>
+    <section>
+        <div class="container">
 
-    <header class="sticky top-0 z-10 bg-white">
-        <div class="container flex items-center justify-between">
-            <div>
-                <img class="h-[50px] md:h-[70px] lg:h-[90px]" src="{{ asset($company->logo) }}" alt="Company Logo">
-            </div>
+            <div class=" space-y-4">
 
-            <div>
                 <p>
-                    {{ nepalidate(now()) }}
+                    प्रकाशित मितिः {{ nepalidate($post->created_at) }} | {{ $post->views }} पटक पढिएको
                 </p>
-                <img class="h-[10px] md:h-[15px] lg:h-[20px]" src="https://jawaaf.com/frontend/images/redline.png"
-                    alt="Line">
+
+                <h1 class="text-3xl font-semibold">
+                    {{ $post->title }}
+                </h1>
+                <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" class="w-full">
+                <div class="descritpion">
+                    {{-- {!! $post->description !!} --}}
+                </div>
             </div>
         </div>
-
-        <x-frontend-navbar />
-    </header>
-
-    <main>
-        {{ $slot }}
-    </main>
-
-    <footer></footer>
-
+    </section>
 
 </body>
 

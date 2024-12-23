@@ -10,6 +10,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\View;
+use Spatie\LaravelPdf\Facades\Pdf;
 
 class PageController extends Controller
 {
@@ -46,12 +47,18 @@ class PageController extends Controller
         $cookie = Cookie::get("post$id");
 
         // check if there is cookie or not or cookie is equal to id
-        if(!$cookie || $cookie != $id){
+        if (!$cookie || $cookie != $id) {
             $news->increment('views');
             Cookie::queue(Cookie::make("post$id", $id, 0));
         }
 
         $advertises = Advertise::where('expire_date', '>=', date('Y-m-d'))->get();
         return view('frontend.news', compact('news', 'advertises'));
+    }
+
+    public function generatePdf($id)
+    {
+        $post = Post::find($id);
+        return Pdf::view('pdf', compact('post'));
     }
 }

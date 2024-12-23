@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PageController::class, 'home'])->name('home');
 Route::get('/category/{slug}',[PageController::class, 'category'])->name('cat');
 Route::get('/news/{id}',[PageController::class, 'news'])->name('news');
+Route::get('/generate-pdf/{id}',[PageController::class, 'generatePdf'])->name('pdf');
 
 
 Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');

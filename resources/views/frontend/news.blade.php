@@ -1,6 +1,7 @@
 <x-frontend-layout>
 
     <section>
+        <a href="{{ route('pdf', $news->id) }}" target="_blank">Download Pdf</a>
         <div class="container grid md:grid-cols-12 gap-5">
 
             <div class="md:col-span-8 space-y-4">
@@ -45,5 +46,7 @@
         src="https://platform-api.sharethis.com/js/sharethis.js#property=676829033e41a900135ff2d7&product=inline-share-buttons&source=platform"
         async="async"></script>
 
-        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=67682c2727271500125f1862&product=inline-reaction-buttons&source=platform" async="async"></script>
+    <script type="text/javascript"
+        src="https://platform-api.sharethis.com/js/sharethis.js#property=67682c2727271500125f1862&product=inline-reaction-buttons&source=platform"
+        async="async"></script>
 </x-frontend-layout>
