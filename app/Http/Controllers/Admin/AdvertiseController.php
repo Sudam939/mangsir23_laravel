@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdvertiseRequest;
 use App\Models\Advertise;
 use Illuminate\Http\Request;
 
@@ -25,16 +26,16 @@ class AdvertiseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdvertiseRequest $request)
     {
 
-        $request->validate([
-            "company_name" => "required",
-            "banner" => "required",
-            "redirect_url" => "required",
-            "contact" => "required",
-            "expire_date" => "required",
-        ]);
+        // $request->validate([
+        //     "company_name" => "required",
+        //     "banner" => "required",
+        //     "redirect_url" => "required",
+        //     "contact" => "required",
+        //     "expire_date" => "required",
+        // ]);
 
         $advertise = new Advertise();
         $advertise->company_name = $request->company_name;
@@ -42,12 +43,7 @@ class AdvertiseController extends Controller
         $advertise->contact = $request->contact;
         $advertise->expire_date = $request->expire_date;
 
-        if ($request->hasFile('banner')) {
-            $file = $request->file('banner');
-            $fileName = time() . "." . $file->getClientOriginalExtension();
-            $file->move('images', $fileName);
-            $advertise->banner = 'images/' . $fileName;
-        }
+        uploadImage($request, 'banner', $advertise);
 
         $advertise->save();
 

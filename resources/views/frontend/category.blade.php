@@ -1,4 +1,4 @@
-<x-frontend-layout>
+<x-frontend-layout :url="route('category', $category->slug)">
 
     <section>
         <div class="container grid md:grid-cols-12 gap-5">

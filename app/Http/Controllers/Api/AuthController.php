@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DemoRequest;
+use App\Http\Resources\MessageResource;
+use App\Mail\EmailNotification;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -34,6 +38,13 @@ class AuthController extends Controller
         ]);
 
         $token = $admin->createToken($request->email)->plainTextToken;
+
+        $data = [
+            "subject" => "Welcome To our website",
+            "name" => $request->name,
+            "message" => "Your account has been created successfully."
+        ];
+        Mail::to($request->email)->send(new EmailNotification($data));
 
         return response()->json([
             "status" => true,
@@ -68,7 +79,7 @@ class AuthController extends Controller
 
         $token = $admin->createToken($request->email)->plainTextToken;
 
-        return response()->json([
+        return new MessageResource([
             "status" => true,
             "admin" => $admin,
             "token" => $token,

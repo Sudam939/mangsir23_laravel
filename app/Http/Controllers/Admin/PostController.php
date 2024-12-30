@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id','desc')->get();
+        $posts = Post::orderBy('id', 'desc')->get();
         return view('admin.post.index', compact('posts'));
     }
 
@@ -47,12 +47,14 @@ class PostController extends Controller
         $post->meta_words = $request->meta_words;
         $post->meta_description = $request->meta_description;
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . "." . $file->getClientOriginalExtension();
-            $file->move('images', $fileName);
-            $post->image = 'images/' . $fileName;
-        }
+        // if ($request->hasFile('image')) {
+        //     $file = $request->file('image');
+        //     $fileName = time() . "." . $file->getClientOriginalExtension();
+        //     $file->move('images', $fileName);
+        //     $post->image = 'images/' . $fileName;
+        // }
+
+        uploadImage($request, 'image', $post);
 
         $post->save();
 

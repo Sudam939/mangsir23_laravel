@@ -1,4 +1,4 @@
-<x-frontend-layout>
+<x-frontend-layout :meta_words="$news->meta_words" :meta_description="$news->meta_description" :url="route('news', $news->id)">
 
     <section>
         <a href="{{ route('pdf', $news->id) }}" target="_blank">Download Pdf</a>
