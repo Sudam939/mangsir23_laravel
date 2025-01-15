@@ -10,5 +10,7 @@
     <div class="col-span-7">
         <h1 class="font-bold">{{ $post->title }}</h1>
         <small>{{ nepalidate($post->created_at) }}</small>
+        {{$post->created_at->format('Y,M-d|H:i')}}
+        {{$post->created_at->diffForHumans()}}
     </div>
 </div>
